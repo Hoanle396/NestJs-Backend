@@ -38,8 +38,7 @@ export class UsersService {
   }
   
   findByEmail(email: string): Promise<User> {
-    const user= this.usersRepository.createQueryBuilder("User").where(`user.email = ${email}`).getOne();
-    console.log(user)
+    const user= this.usersRepository.createQueryBuilder("User").where("User.email = :email", { email: email }).getOne();
     return user;
   }
 
