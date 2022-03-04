@@ -5,7 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-
+import { Connection } from 'typeorm';
+import { User } from './users/users.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -20,11 +21,13 @@ import { UsersModule } from './users/users.module';
     username: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_DBNAME,
-    entities: [],
+    entities: [User],
     synchronize: true,
   }),
-    AuthModule, UsersModule],
+  AuthModule, UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private connection: Connection) {}
+}
