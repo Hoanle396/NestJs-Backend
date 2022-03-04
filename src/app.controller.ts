@@ -15,7 +15,6 @@ export class AppController {
   }
   @Post('auth/test')
   async findEmail(@Body() req) {
-    console.log(req)
     return this.usersService.findByEmail(req.email)
   }
   @UseGuards(JwtAuthGuard)
