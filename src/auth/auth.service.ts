@@ -10,13 +10,13 @@ export class AuthService {
   ) {}
 
   async validateUser(email: string, pass: string): Promise<any> {
+
+    console.log(email)
     const user = await this.usersService.findByEmail(email);
-    console.log(user)
     if (user && user.password === pass) {
       const { password, ...result } = user;
       return result;
     }
-    console.log(user)
     return null;
   }
 
@@ -26,8 +26,8 @@ export class AuthService {
       access_token: this.jwtService.sign(payload),
     };
   }
-  async Register(firstName: string,lastName: string,Email:string,password:string) {
-    const user = await  this.usersService.Register(firstName,lastName,Email,password);
+  async Register(firstName: string,lastName: string,email:string,password:string) {
+    const user = await  this.usersService.Register(firstName,lastName,email,password);
     if (user){
       return user;
     }

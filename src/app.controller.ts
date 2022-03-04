@@ -10,6 +10,7 @@ export class AppController {
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   async login(@Request() req) {
+    return "ok"
     return this.authService.login(req.user);
   }
 
@@ -20,6 +21,6 @@ export class AppController {
   }
   @Post('auth/register')
   async Register(@Body() user) {
-    return this.authService.Register(user.firstName,user.lastName,user.Email,user.password);
+    return this.authService.Register(user.firstName,user.lastName,user.email,user.password);
   }
 }
