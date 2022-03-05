@@ -21,8 +21,7 @@ export class UsersService {
   }
   
   findByEmail(email: string): Promise<User> {
-    const user= this.usersRepository.createQueryBuilder("User").where("User.email = :email", { email: email }).getOne();
-    return user;
+    return this.usersRepository.findOne({ email: email });
   }
 
   async remove(id: string): Promise<void> {
