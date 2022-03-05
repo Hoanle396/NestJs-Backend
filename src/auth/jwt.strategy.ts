@@ -22,6 +22,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
        avatarUrl:payload.avatarUrl ,
        isActive: payload.isActive, 
        isAdmin:payload.isAdmin , 
-       isCompany:payload.isCompany };
+       isCompany:payload.isCompany 
+      };
   }
 }

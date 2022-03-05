@@ -24,6 +24,6 @@ export class AppController {
   }
   @Post('auth/register')
   async Register(@Body() user) {
-    return this.authService.Register(user.firstName,user.lastName,user.email,user.password);
+    return this.authService.Register(user);
   }
 }

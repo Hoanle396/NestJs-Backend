@@ -28,12 +28,12 @@ export class UsersService {
   async remove(id: string): Promise<void> {
     await this.usersRepository.delete(id);
   }
-  async Register(firstName,lastName,email,password): Promise<User>{
+  async Register(users:any): Promise<User>{
     var user= new User();
-    user.firstName = firstName;
-    user.lastName = lastName;
-    user.email = email;
-    user.password = password;
+    user.firstName = users.firstName;
+    user.lastName = users.lastName;
+    user.email = users.email;
+    user.password = users.password;
     return this.usersRepository.save(user);
   }
 }
