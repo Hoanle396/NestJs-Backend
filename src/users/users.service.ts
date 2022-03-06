@@ -23,7 +23,12 @@ export class UsersService {
   findByEmail(email: string): Promise<User> {
     return this.usersRepository.findOne({ email: email });
   }
-
+  findBy(data:Object): Promise<User[]> {
+    return this.usersRepository.find(data)
+  }
+  create(User:User): Promise<User> {
+       return this.usersRepository.save(User)
+  }
   async remove(id: string): Promise<void> {
     await this.usersRepository.delete(id);
   }

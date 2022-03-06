@@ -5,17 +5,17 @@ import { Entity, Column, PrimaryGeneratedColumn,Unique} from 'typeorm';
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
-
-  @Column()
+  
+  @Column({nullable: false})
   firstName: string;
 
-  @Column()
+  @Column({nullable: false})
   lastName: string;
   
   @Column({unique: true})
   email : string;
 
-  @Column()
+  @Column({nullable: false})
   password: string;
 
   @Column({ default: true })
