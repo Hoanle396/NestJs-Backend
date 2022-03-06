@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { Connection } from 'typeorm';
 import { User } from './users/users.entity';
+import { AuthController } from './users/users.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -25,7 +26,7 @@ import { User } from './users/users.entity';
     synchronize: true,
   }),
   AuthModule, UsersModule ],
-  controllers: [AppController],
+  controllers: [AppController,AuthController],
   providers: [AppService],
 })
 export class AppModule {
